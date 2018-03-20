@@ -39,15 +39,15 @@ crisprviz.sh
 
 1. Standard run (recommended). Processes all genome files (.fasta) in current directory in parallel (-p) (concurrently), clean tmp files (-c), and splits loci (-x):
 
-			crisprviz.sh -pxc
+		crisprviz.sh -pxc
 
 2. Run for a single genome file (-f genome.fasta), with a min # of repeats of 3 (-r), cleans tmp files (-c), and splits loci (-x):
 
-			crisprviz.sh -cx -f genome.fasta -r 3
+		crisprviz.sh -cx -f genome.fasta -r 3
 
 3. Processes all genome files in current directory with min and max spacer length of 28 (-m) and 53 (-n) respectively:
 
-			crisprviz.sh -m 28 -n 53
+		crisprviz.sh -m 28 -n 53
 
 
 # Installation
