@@ -14,7 +14,7 @@ CRISPRviz is based on bash and python scripts and run from the command line. A D
 Usage: crisprviz.sh [OPTIONS]
 
 Options:
-    -t     Test installation >> Runs pipeline on included test data. Results are displayed at localhost:4444.
+    -t  Test installation >> Runs pipeline on included test data. Results are displayed at localhost:4444.
     -p 	Parallel processing >> Concurrently processes all genome.fasta files in current directory | (recommended for < 50 - 150 files).
     -s 	Run crisprviz_engine only. Use when spacers|repeats have already been extracted.
     -x 	Split loci. Each locus is listed as a separate row in web results.
