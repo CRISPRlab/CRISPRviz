@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <title>CRISPRvis</title>
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta charset=utf-8>
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+    <script data-main="app" src="lib/require.js"></script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css"rel="stylesheet">
+    <link href="css/css-loader.css"rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="logo"><img src='/img/logo.png'></div>
+    <div class="container" id="mainContainer">
+        <div id="saveTitle"></div>
+
+        <!--File Action Dropdown-->
+        <div class="dropdown">
+            <div class="btn-group">
+                
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                File actions
+                </button>
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
+                
+            
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item save-item" data-toggle="modal" data-target="#saveModal" href="#">Save<span class='glyphicon glyphicon-floppy-save'></span></a></li>
+                    <li><a class="dropdown-item load-item" data-toggle="modal" data-target="#loadModal" href="#">Load<span class='glyphicon glyphicon-folder-open'></span></a></li>
+                    <li><a class="dropdown-item manage-item" data-toggle="modal" data-target="#manageModal" href="#">Manage<span class='glyphicon glyphicon-list'></span></a></li>
+                    <li><a class="dropdown-item import-item" data-toggle="modal" data-target="#importModal" href="#">Import<span class='glyphicon glyphicon-open'></span></a></li>
+                    <li><a class="dropdown-item export-item" data-toggle="modal" data-target="#exportModal" href="#">Export<span class='glyphicon glyphicon-save'></span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--begin main spacer container-->
+        <div class="container" id="mainSpacerContainer"></div>
+        <div class="btn-row-1">
+            <div class="action-container">
+                <span class='main-btn main-rc-btn' data-toggle='tooltip' data-placement='auto' title='Reverse complement'><span class='glyphicon glyphicon-random'></span>RC</span>
+                <span class='main-btn main-rev-btn' data-toggle='tooltip' data-placement='auto' title='Reverse direction'><span class='glyphicon glyphicon-resize-horizontal'></span></span>
+                <span class='main-btn main-length-btn' data-toggle='tooltip' data-placement='auto' title='Sort by length ASC'><span class='glyphicon glyphicon-sort-by-attributes'></span></span>
+                <span class='main-btn main-length-alt-btn' data-toggle='tooltip' data-placement='auto' title='Sort by length DESC'><span class='glyphicon glyphicon-sort-by-attributes-alt'></span></span>
+            </div>
+        </div>
+
+        <!--Spacer|Repeat toggle btns-->
+        <div class="toggle-container">
+            <span class='main-btn toggle-btn spacer-toggle-btn' data-toggle='tooltip' data-placement='auto' title='Show spacers'><span class='repeat-rect'></span></span>
+            <span class='main-btn toggle-btn repeat-toggle-btn' data-toggle='tooltip' data-placement='auto' title='Show repeats'><span class='glyphicon glyphicon-stop'></span></span>
+            <span class='main-btn toggle-btn both-toggle-btn' data-toggle='tooltip' data-placement='auto' title='Show spacers and repeats'>
+                <span class='glyphicon glyphicon-stop'></span><span class='repeat-rect'></span><span class='glyphicon glyphicon-stop'></span>
+            </span>
+            <span class='main-btn align-btn' data-toggle='tooltip' data-placement='auto' title='Align spacers'><span class='glyphicon glyphicon-equalizer'></span></span>
+        </div>
+
+        <!-- Modal -->
+        <div id='saveModalContainer'></div>
+        <div id='loadModalContainer'></div>
+        <div id='manageModalContainer'></div>
+        <div id='deleteModalContainer'></div>
+        <div id='exportModalContainer'></div>
+        <div id='importModalContainer'></div>
+        <div id='confirmDeleteContainer'></div>
+
+        <!--CSS HUD loader-->
+        <div id='HUD' class='loader loader-default'></div>
+
+    </div>
+</body>
+
+</html>

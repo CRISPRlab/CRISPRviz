@@ -1,0 +1,410 @@
+body {
+	background-color: lightgray;
+}
+
+#logo {
+    position: absolute;
+    right: 13px;
+    margin-top: 5px;
+}
+#logo img {
+    height: 40px;
+}
+.container {
+	margin-top: 10px;
+	width: 100%;
+    padding-right:4px;
+    padding-left:4px;
+}
+.spacer-container-parent {
+    position: relative;
+}
+.spacer-container {
+	min-height: 30px;
+    margin-top: 2px;
+    background-color: rgb(187, 187, 187);
+    border-radius: 4px;
+    position: relative;
+    clear: both;
+    width: 85%;
+    margin-left: auto;
+
+}
+.ghost-spacer-container {
+    opacity: .3;
+}
+.spacer-item-list {
+    margin-right: 173px;
+    position: relative;
+    z-index: 1;
+    overflow: auto;
+}
+.spacer-item {
+	height: 30px;
+    width: 35px;
+    float: right;
+    margin-left: -1px;
+    border: 0.5px solid black;
+    font-family: Wingdings;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+.ghost-spacer-item {
+    opacity: .4;
+}
+.spacer-item.empty-spacer {
+	/* no styling needed currently*/
+}
+.action-btn {
+	width: 30px;
+	height: 30px;
+	font-family: initial;
+	border: 1px solid black;
+	cursor: pointer;
+    float:right;
+    border-radius:4px;
+    padding-top: 4;
+    box-shadow: 3px 3px 9px rgb(51, 51, 51);
+    margin-left: 2px;
+}
+.action-btn.add-btn {
+    margin-left: 15px;
+    background-color: rgb(247, 247, 247);
+    padding-left: 9;
+    position: relative;
+    z-index: 1;
+}
+.action-btn.delete-btn {
+    
+    background-color: #f13939;
+    padding-left:11px;
+    position: relative;
+    z-index: 1;
+}
+.action-btn.reverse-btn {
+    background-color: #39f1b6;
+    padding-left:11px;
+    position: relative;
+    z-index: 1;
+}
+.action-btn.rc-btn {
+    background-color: #39f1b6;
+    padding-left: 10px;
+    position: relative;
+    z-index: 1;
+}
+.action-btn.delete-row-btn {
+    background-color: #f13939;
+    padding-left: 7px;
+    padding-top: 6px;
+    color: black;
+    position: relative;
+    z-index: 1;
+}
+.rev-icon {
+    top: 3px;
+    right: 4px;
+}
+.title {
+	font-family: initial;
+    position: absolute;
+    top: 0px;
+    left: -17.7%;
+     width: 100%; 
+    /* pointer-events: none; */
+    cursor: default;
+    background-color: rgb(187, 187, 187);
+    height: 30px;
+    padding-top: 5px;
+    padding-left: 2px;
+    border-radius: 4px;
+}
+.title-icon {
+    color: black;
+    margin-right: 10px;
+    pointer-events: all;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+    top:-4px;
+    background-color: rgb(187, 187, 187);
+    padding: 3px;
+    z-index: 2;
+}
+.symbol {
+	position: relative;
+    left: 10px;
+    top: 7px;
+    pointer-events: none;
+    font-size:12px;
+}
+.main-btn {
+	height:30px;
+	width:62px;
+    float:right;
+    position: relative;
+    top: 10px;
+    right: 7px;
+    padding-left: 8px;
+    padding-top: 4px;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 3px 3px 9px #333;
+    margin-left:7px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.btn.btn-primary.dropdown-toggle {
+    left: 5px;
+    padding-right: 34px;
+    top: 0px;
+}
+.dropdown .glyphicon-triangle-bottom{
+    color: white;
+    left: -19px;
+    top: 10px;
+}
+.load-options {
+    float: left;
+    position: relative;
+    left: 7px;
+}
+.load-options .main-btn {
+    padding-left:14px;
+    padding-top:5px;
+}
+.main-btn {
+   width:81px;
+   padding-top:5px;
+}
+.main-btn .glyphicon{
+    top:2px;
+    margin-left:2px;
+}
+.main-rev-btn .glyphicon {
+    font-size: 34px;
+    position: relative;
+    top: -6px;
+    left: 14px;
+}
+.main-btn .btn-text {
+    margin-left:5px;
+}
+.main-btn.load-btn {
+
+}
+.main-btn.main-rc-btn .glyphicon {
+    margin-right: 7px;
+    left: -2px;
+    padding-left:11px;
+}
+.main-btn.main-length-btn .glyphicon {
+    font-size: 20px;
+    left: 21px;
+}
+.main-btn.main-length-alt-btn .glyphicon {
+    font-size: 20px;
+    left: 21px;
+}
+.main-btn.main-length-alt-btn {
+    padding-top: 4px;
+}
+.main-btn.main-length-btn {
+    padding-top: 4px;
+}
+.main-btn.spacer-toggle-btn {
+    padding-top: 6px;
+}
+.btn-row-1 {
+    width:100%;
+    height:45px;
+    margin-top: 8px;
+}
+.toggle-container {
+    float:right;
+    margin-bottom: 35px;
+}
+.toggle-btn {
+    color: white;
+}
+.main-btn.spacer-toggle-btn .glyphicon {
+    left: 24px;
+}
+.main-btn.repeat-toggle-btn  {
+    padding-left: 32px;
+}
+.repeat-rect {
+    width: 10px;
+    background-color: #afafaf;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    margin-left: 27px;
+    top: -1px;
+}
+.main-btn.both-toggle-btn {
+    padding-left: 20px;
+}
+.main-btn.both-toggle-btn .glyphicon-stop {
+    left: -1px;
+    top: -4px;
+    margin-right: 0px;
+}
+.main-btn.both-toggle-btn .repeat-rect{
+    margin-left: 0px;
+}
+.glyphicon.glyphicon-stop {
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+.glyphicon.glyphicon-remove {
+    font-size: 9px;
+    border: 1px solid #757575;
+    margin-left:1px;
+    margin-top:1px;
+}
+input#saveInput {
+    width:100%;
+}
+input#exportInput {
+    width:100%;
+}
+#saveTitle {
+    top: -4px;
+    left: 6px;
+    font-weight: bold;
+    position: relative;
+    font-size: 21px
+}
+#loadModal .modal-body {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+.load-item {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.glyphicon.glyphicon-file {
+    top:2px;
+}
+.file-item.selected {
+    background-color: #ffca54;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.main-btn.manage-btn {
+    width:  181px;
+}
+.main-btn .glyphicon-equalizer {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    font-size: 22px;
+    left: 21px;
+    top: 0px;
+}
+.load-item .manage-trash-delete.glyphicon.glyphicon-trash {
+    top: 3px;
+    background-color: #ff5a5a;
+    padding-right: 6px;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 1px solid #909090;
+    border-radius: 3px;
+    float:right;
+    color:white;
+}
+.truncate {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:inline-block;
+  position:relative;
+  top: 0px;
+  left: -7px;
+}
+.tooltip-inner {
+    max-width: none;
+    white-space: nowrap;
+}
+.btn.dropdown-toggle {
+    box-shadow: 3px 3px 9px #333;
+}
+/*Dropdown items*/
+li .dropdown-item:hover {
+    margin-left: -20px;
+    padding-left: 40px;
+    width: 158px;
+}
+/* Save */
+.dropdown-item.save-item{
+    left: 20px;
+    position: relative;
+}
+.dropdown-item.save-item .glyphicon{
+    left: -51px;
+    top: 2px;
+    color: black;
+}
+/* Load */
+.dropdown-item.load-item{
+    left: 21px;
+    position: relative;
+    margin-bottom: 0;
+}
+.dropdown-item.load-item .glyphicon{
+    left: -53px;
+    top: 2px;
+    color: black;
+}
+/* Manage */
+.dropdown-item.manage-item{
+    left: 20px;
+    position: relative;
+}
+.dropdown-item.manage-item .glyphicon{
+    left: -71px;
+    top: 2px;
+    color: black;
+}
+/* Import */
+.dropdown-item.import-item{
+    left: 20px;
+    position: relative;
+}
+.dropdown-item.import-item .glyphicon{
+    left: -60px;
+    top: 2px;
+    color: black;
+}
+/* Export */
+.dropdown-item.export-item{
+    left: 20px;
+    position: relative;
+}
+.dropdown-item.export-item .glyphicon{
+    left: -60px;
+    top: 2px;
+    color: black;
+}
+.dropdown .btn-group>.btn:hover {
+    z-index: 0;
+}
+.open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+    z-index: 0;
+}
+
+
+
+
+
+
+
+
