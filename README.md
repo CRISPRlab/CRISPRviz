@@ -110,7 +110,7 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
   ```
   Once the processing is complete (typically after a few seconds), go to **localhost:4444** in your browser to view the results:
 
-  ![Test Results img](https://github.com/CRISPRlab/CRISPRviz/tree/master/img/test_results.png "Test Results img")
+  ![Test Results img](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/test_results.png "Test Results img")
 
 
 
