@@ -36,16 +36,19 @@ crisprviz.sh
 
 
 ### Examples:
+1. Test the installation:
 
-1. Standard run (recommended). Processes all genome files (.fasta) in current directory in parallel (-p) (concurrently), clean tmp files (-c), and splits loci (-x):
+		crisprviz.sh -t
+
+2. Standard run (recommended). Processes all genome files (.fasta) in current directory in parallel (-p) (concurrently), clean tmp files (-c), and splits loci (-x):
 
 		crisprviz.sh -pxc
 
-2. Run for a single genome file (-f genome.fasta), with a min # of repeats of 3 (-r), cleans tmp files (-c), and splits loci (-x):
+3. Run for a single genome file (-f genome.fasta), with a min # of repeats of 3 (-r), cleans tmp files (-c), and splits loci (-x):
 
 		crisprviz.sh -cx -f genome.fasta -r 3
 
-3. Processes all genome files in current directory with min and max spacer length of 28 (-m) and 53 (-n) respectively:
+4. Processes all genome files in current directory with min and max spacer length of 28 (-m) and 53 (-n) respectively:
 
 		crisprviz.sh -m 28 -n 53
 
@@ -119,7 +122,7 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
 ### Mac | Linux
 1. Install Docker: https://www.docker.com/get-docker
 
-2. Once Docker is running, create a [Docker Hub account](https://hub.docker.com/) then login from the command line:
+2. (Optional) Once Docker is running, create a [Docker Hub account](https://hub.docker.com/) then login from the command line:
   ```
   docker login
   ```
@@ -128,14 +131,20 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
   ```
   docker pull crisprlab/crisprviz
   ```
+4. Test the installation - run the script below, then go to localhost:4444 in your browser:
+    ```
+    docker run -it -p 4444:8000 \
+    crisprlab/crisprviz \
+    /bin/bash -c "crisprviz.sh -t; server.py;"
+    ```
 
-4. Place the genome files you wish to process in a directory (on your Desktop for example: **~/Desktop/genomesFolder**)
+5. Place the genome files you wish to process in a directory (on your Desktop for example: **~/Desktop/genomesFolder**)
 
-5. Create the CRISPRviz container and begin processing genomes! **Note** - Before copy/pasting the below script into the command line, two modifications need to be made:
+6. Create the CRISPRviz container and begin processing genomes! **Note** - Before copy/pasting the below script into the command line, two modifications need to be made:
 
-    *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata  ||  The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 4. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
+    *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata   ||   The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 4. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
 
-    *b)* **crisprviz.sh -pxc;**  ||  This command be modified to reflect any additional options you wish to include in your run.
+    *b)* **crisprviz.sh -pxc;**   ||   This command be modified to reflect any additional options you wish to include in your run.
   ```
   docker run -it -p 4444:8000 \
   -v /Users/userName/Desktop/genomesFolder:/app/userdata \
@@ -156,7 +165,7 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
 
 4. Launch Docker Quickstart Terminal from your Desktop.
 
-5. Once Docker is running, create a [Docker Hub account](https://hub.docker.com/) then login from the command line:
+5. (Optional) Once Docker is running, create a [Docker Hub account](https://hub.docker.com/) then login from the command line:
   ```
   docker login
   ```
@@ -166,19 +175,27 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
   docker pull crisprlab/crisprviz
   ```
 
-7. Configure docker-machine:
+7. Configure docker-machine. First make sure the virtualbox is running:
 ```
 docker-machine ls
 ```
+Then, set the default ip address for the docker-machine. We will be using this displayed ip to access the local server in the next step:
 ```
 docker-machine ip default
 ```
 
-8. Create the CRISPRviz container and begin processing genomes! **Note** - Before copy/pasting the below script into the Docker command line, two modifications need to be made:
+8. Test the installation - run the script below, then go to **(default ip from step 7):4444** in your browser. Example:  **192.168.99.100:4444**
+      ```
+      docker run -it -p 4444:8000 \
+      crisprlab/crisprviz \
+      /bin/bash -c "crisprviz.sh -t; server.py;"
+      ```
 
-    *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata  ||  The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 4. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
+9. Create the CRISPRviz container and begin processing genomes! **Note** - Before copy/pasting the below script into the Docker command line, two modifications need to be made:
 
-    *b)* **crisprviz.sh -pxc;**  ||  This command be modified to reflect any additional options you wish to include in your run.
+    *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata   ||   The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 4. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
+
+    *b)* **crisprviz.sh -pxc;**   ||   This command be modified to reflect any additional options you wish to include in your run.
   ```
   docker run -it -p 4444:8000 \
   -v /Users/userName/Desktop/genomesFolder:/app/userdata \
@@ -187,3 +204,12 @@ docker-machine ip default
   crisprviz.sh -pxc; \
   server.py --dir .."
   ```
+
+---
+
+### Troubleshooting
+If you have other processes running on port 4444, including a CRISPRviz instance, you may get the error:
+
+ **Error starting userland proxy: Bind for 0.0.0.0:4444 failed: port is already allocated.**
+
+ If that occurs, gracefully shutdown or kill the culprit process. You can see what processes are running on what ports with the command: `lsof -i | grep LISTEN`. For example: if the CRISPRviz Python server is blocking the port, first find the process: `ps -ax | grep python`, then kill it using the PID: `kill -9 PID`.
