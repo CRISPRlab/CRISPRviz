@@ -52,9 +52,7 @@ crisprviz.sh
 
 # Installation
 
-The pipeline can be installed on Linux and Mac operating systems directly by cloning or downloading this github repo (recommended). Alternatively, a Docker image can be downloaded at https://hub.docker.com/r/crisprlab/crisprviz/ (works with Windows):
-
-  `docker pull crisprlab/crisprviz`
+The pipeline can be installed on Linux and Mac operating systems directly by cloning or downloading this github repo (recommended). Alternatively, a Docker image can be downloaded at https://hub.docker.com/r/crisprlab/crisprviz/ (works on Windows - see 'Docker Installation for Windows below')
 
 ## CLI installation (recommended):
 
