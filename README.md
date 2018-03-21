@@ -29,13 +29,14 @@ Options:
     -h 	Show this help menu.
 ```
 
-The program *will* run with no options, only with the script command supplied - however this is not recommended. Note: If no file option is provided (-f), **all .fasta files in the current directory** will be used as input and processed; ideal for high-throughput analysis.
+The program *will* run with no options, only with the script command supplied - however this is not recommended. **Note:** If no file option is provided (-f), **all .fasta files in the current directory** will be used as input and processed; ideal for high-throughput analysis.
 ```
 crisprviz.sh
 ```
 
 
 ### Examples:
+Navigate to the directory containing your .fasta genome file(s) `cd genomeFolder`, then:
 1. Test the installation:
 
 		crisprviz.sh -t
@@ -52,6 +53,7 @@ crisprviz.sh
 
 		crisprviz.sh -m 28 -n 53
 
+Open **localhost:4444** in your browser to view the results.
 
 # Installation
 
@@ -63,10 +65,11 @@ The pipeline can be installed on Linux and Mac operating systems directly by clo
 - Bash >= 3.2.57 && awk
 
 - Java >= 1.8
-- Python >= 2.7 or 3 && pip
+- Python >= 2.7 or 3 && pip (install pip for Python 2 and pip3 for Python 3)
   - Mac - using homebrew:
 
    `brew install python`
+
    `sudo easy_install pip`
   - Ubuntu:
 
@@ -75,6 +78,7 @@ The pipeline can be installed on Linux and Mac operating systems directly by clo
 - Biopython
 
   `pip install biopython`
+  or
 
   `pip3 install biopython`
 
@@ -131,12 +135,18 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
   ```
   docker pull crisprlab/crisprviz
   ```
-4. Test the installation - run the script below, then go to localhost:4444 in your browser:
+4. Test the installation:
     ```
     docker run -it -p 4444:8000 \
     crisprlab/crisprviz \
     /bin/bash -c "crisprviz.sh -t; server.py;"
     ```
+
+    Once the processing is complete (typically after a few seconds), you will see: `Minced parsing completed @:  Wed Mar 21 16:01:13 UTC 2018
+...Executing server.py...
+('Serving HTTP on', '0.0.0.0', 'port', 8000, '...')`
+
+     Go to **localhost:4444** in your browser to view the results. Docker will sometimes take a minute or two to serve the page up, especially if it is the first time the Python server is started, so be patient. Sometimes refreshing the page can speed up the process.
 
 5. Place the genome files you wish to process in a directory (on your Desktop for example: **~/Desktop/genomesFolder**)
 
@@ -184,12 +194,18 @@ Then, set the default ip address for the docker-machine. We will be using this d
 docker-machine ip default
 ```
 
-8. Test the installation - run the script below, then go to **(default ip from step 7):4444** in your browser. Example:  **192.168.99.100:4444**
+8. Test the installation:
 ```
 docker run -it -p 4444:8000 \
 crisprlab/crisprviz \
 /bin/bash -c "crisprviz.sh -t; server.py;"
 ```
+
+  Once the processing is complete (typically after a few seconds), you will see: `Minced parsing completed @:  Wed Mar 21 16:01:13 UTC 2018
+...Executing server.py...
+('Serving HTTP on', '0.0.0.0', 'port', 8000, '...')`
+
+ Go to **(default ip from step 7):4444** in your browser to view the results. Example:  **192.168.99.100:4444**. Docker will sometimes take a minute or two to serve the page up, especially if it is the first time the Python server is started, so be patient. Sometimes refreshing the page can speed up the process.
 
 9. Place the genome files you wish to process in a directory (on your Desktop for example: **~/Desktop/genomesFolder**)
 
