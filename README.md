@@ -142,7 +142,7 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
 
 6. Create the CRISPRviz container and begin processing genomes! **Note** - Before copy/pasting the below script into the command line, two modifications need to be made:
 
-    *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata   ||   The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 4. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
+    *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata   ||   The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 5. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
 
     *b)* **crisprviz.sh -pxc;**   ||   This command be modified to reflect any additional options you wish to include in your run.
   ```
