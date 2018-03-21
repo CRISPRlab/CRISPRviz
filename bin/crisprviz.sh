@@ -82,7 +82,7 @@ execute_spacer_analysis () {
 
 ## run on test data
 if [[ -n $topt && $topt -gt 0 ]]; then
-	echo "Setting current dir: ${SOURCE_DIR}/test"
+	echo "Setting current dir: ${SOURCE_DIR}/../test"
 	cd ${SOURCE_DIR}/../test
 	copt=1
 	fopt=""
