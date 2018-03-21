@@ -185,25 +185,27 @@ docker-machine ip default
 ```
 
 8. Test the installation - run the script below, then go to **(default ip from step 7):4444** in your browser. Example:  **192.168.99.100:4444**
-      ```
-      docker run -it -p 4444:8000 \
-      crisprlab/crisprviz \
-      /bin/bash -c "crisprviz.sh -t; server.py;"
-      ```
+```
+docker run -it -p 4444:8000 \
+crisprlab/crisprviz \
+/bin/bash -c "crisprviz.sh -t; server.py;"
+```
 
-9. Create the CRISPRviz container and begin processing genomes! **Note** - Before copy/pasting the below script into the Docker command line, two modifications need to be made:
+9. Place the genome files you wish to process in a directory (on your Desktop for example: **~/Desktop/genomesFolder**)
 
-    *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata   ||   The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 4. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
+10. Create the CRISPRviz container and begin processing genomes! **Note** - Before copy/pasting the below script into the Docker command line, two modifications need to be made:
+
+    *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata   ||   The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 9. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
 
     *b)* **crisprviz.sh -pxc;**   ||   This command be modified to reflect any additional options you wish to include in your run.
-  ```
-  docker run -it -p 4444:8000 \
-  -v /Users/userName/Desktop/genomesFolder:/app/userdata \
-  crisprlab/crisprviz \
-  /bin/bash -c "cd /app/userdata; \
-  crisprviz.sh -pxc; \
-  server.py --dir .."
-  ```
+```
+docker run -it -p 4444:8000 \
+-v /Users/userName/Desktop/genomesFolder:/app/userdata \
+crisprlab/crisprviz \
+/bin/bash -c "cd /app/userdata; \
+crisprviz.sh -pxc; \
+server.py --dir .."
+```
 
 ---
 
