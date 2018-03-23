@@ -224,6 +224,37 @@ server.py --dir .."
 ```
 
 ---
+### Helpful Tips on Navigating the UI
+
+#### Importing files:
+Json files generated or exported from CRISPRviz can be quickly imported to the web tool by going to **File actions > Import**, then dragging and dropping the .json file onto the 'Choose File' button.
+
+#### Updating Row Names:
+Row names are generated from the genome files you provide. Often times, these files have long cumbersome names (especially from NCBI) that are a series of numbers, not helpful or descriptive. Rename the genome files before running them through the pipeline, or you can edit the row names directly in the UI. Hit Enter to save.
+
+![Editing row name](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/text_edit_before.png "Editing row name")
+
+![Editing row name](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/text_edit_after.png "Editing row name")
+
+#### Sorting Rows and Spacers
+Rows, spacers, and repeats are all sortable. Rows can be moved by grabbing the row sort icon ![Sort icon](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/row_sort_icon.png "Sort icon"), and dragging up or down:
+
+![Sort row](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/sortable_row.png "Sort row")
+
+Spacers and repeats can also be sorted independently:
+
+![Sort spacer](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/sortable_spacer.png "Sort spacer")
+
+#### Multiple Sequence Alignment
+![Align spacers](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/align.png "Align spacers")
+
+To launch an alignment, click the 'Align spacers' button. This method uses a progressive alignment algorithm that is optimized for closely related organisms. Distantly related organisms can still be aligned, but if no spacers are shared, no gaps are inserted and rows are simply reordered based on their similarity score.
+
+Sortable rows and spacers allow creation or manipulation of sequence alignments to begin understanding the unique evolutionary history of the organisms in question:
+
+![Gaps](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/gaps.png "Gaps")
+
+---
 
 ### Troubleshooting
 If you have other processes running on port 4444, including a CRISPRviz instance, you may get the error:
