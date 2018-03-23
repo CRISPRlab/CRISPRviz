@@ -235,6 +235,7 @@ Row names are generated from the genome files you provide. Often times, these fi
 <img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/text_edit_before.png" width="200">
 
 <img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/text_edit_after.png" width="200">
+
 #### Sorting Rows and Spacers
 Rows, spacers, and repeats are all sortable. Rows can be moved by grabbing the row sort icon <img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/row_sort_icon.png" width="22">, and dragging up or down:
 
