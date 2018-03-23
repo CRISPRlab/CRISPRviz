@@ -135,18 +135,18 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
   ```
   docker pull crisprlab/crisprviz
   ```
-8. Test the installation:
-  ```
-  docker run -it -p 4444:8000 \
-  crisprlab/crisprviz \
-  /bin/bash -c "crisprviz.sh -t; server.py;"
-  ```
+4. Test the installation:
+    ```
+    docker run -it -p 4444:8000 \
+    crisprlab/crisprviz \
+    /bin/bash -c "crisprviz.sh -t; server.py;"
+    ```
 
     Once the processing is complete (typically after a few seconds), you will see: `Minced parsing completed @:  Wed Mar 21 16:01:13 UTC 2018
-  ...Executing server.py...
-  ('Serving HTTP on', '0.0.0.0', 'port', 8000, '...')`
+...Executing server.py...
+('Serving HTTP on', '0.0.0.0', 'port', 8000, '...')`
 
-   Go to **localhost:4444** in your browser to view the results. Docker will sometimes take a minute or two to serve the page up, especially if it is the first time the Python server is started, so be patient. Sometimes refreshing the page can speed up the process.
+     Go to **localhost:4444** in your browser to view the results. Docker will sometimes take a minute or two to serve the page up, especially if it is the first time the Python server is started, so be patient. Sometimes refreshing the page can speed up the process.
 
 5. Place the genome files you wish to process in a directory (on your Desktop for example: **~/Desktop/genomesFolder**)
 
