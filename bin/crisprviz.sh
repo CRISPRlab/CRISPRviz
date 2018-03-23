@@ -231,10 +231,10 @@ split_files () {
 			newfile_start=1
 			newfile_count=1
 			iterator=1
-			last_idx=1
+			last_idx=0
 			for idx in "${item_array[@]}"
 			do
-				if [ "$idx" -lt "$last_idx" ]; then
+				if [ "$idx" -le "$last_idx" ]; then
 					lower_range=$((newfile_start*2-1))
 					upper_range=$((iterator*2-2))
 					awk "NR >= $lower_range && NR <= $upper_range" "${file}" > "${file}.${newfile_count}"

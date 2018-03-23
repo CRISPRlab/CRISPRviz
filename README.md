@@ -224,7 +224,7 @@ server.py --dir .."
 ```
 
 ---
-### Helpful Tips
+## Helpful Tips
 
 #### Importing files:
 Json files generated or exported from CRISPRviz can be quickly imported to the web tool by going to **File actions > Import**, then dragging and dropping the .json file onto the 'Choose File' button.
