@@ -136,11 +136,11 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
   docker pull crisprlab/crisprviz
   ```
 4. Test the installation:
-    ```
-    docker run -it -p 4444:8000 \
-    crisprlab/crisprviz \
-    /bin/bash -c "crisprviz.sh -t; server.py;"
-    ```
+  ```
+  docker run -it -p 4444:8000 \
+  crisprlab/crisprviz \
+  /bin/bash -c "crisprviz.sh -t; server.py;"
+  ```
 
     Once the processing is complete (typically after a few seconds), you will see: `Minced parsing completed @:  Wed Mar 21 16:01:13 UTC 2018
 ...Executing server.py...
