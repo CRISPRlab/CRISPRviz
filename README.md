@@ -1,4 +1,4 @@
-![CRISPRviz](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/logo.png | width=700)
+<img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/logo.png" width="700">
 
 CRISPRviz (CRISPR Visualizer) identifies and extracts repeats and spacers from genome files (.fasta), then displays this information via local web server for additional manipulation (localhost:4444).
 
@@ -115,7 +115,7 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
   ```
   Once the processing is complete (typically after a few seconds), go to **localhost:4444** in your browser to view the results:
 
-  ![Test Results img](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/test_results.png "Test Results img")
+  <img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/test_results.png" width="700">
 
 
 
@@ -232,27 +232,26 @@ Json files generated or exported from CRISPRviz can be quickly imported to the w
 #### Updating Row Names:
 Row names are generated from the genome files you provide. Often times, these files have long cumbersome names (especially from NCBI) that are a series of numbers, not helpful or descriptive. Rename the genome files before running them through the pipeline, or you can edit the row names directly in the UI. Hit Enter to save.
 
-![Editing row name](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/text_edit_before.png | width=200)
+<img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/text_edit_before.png" width="200">
 
-![Editing row name](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/text_edit_after.png | width=200)
-
+<img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/text_edit_after.png" width="200">
 #### Sorting Rows and Spacers
-Rows, spacers, and repeats are all sortable. Rows can be moved by grabbing the row sort icon ![Sort icon](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/row_sort_icon.png | width=22), and dragging up or down:
+Rows, spacers, and repeats are all sortable. Rows can be moved by grabbing the row sort icon <img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/row_sort_icon.png" width="22">, and dragging up or down:
 
-![Sort row](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/sortable_row.png)
+<img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/sortable_row.png">
 
 Spacers and repeats can also be sorted independently:
 
-![Sort spacer](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/sortable_spacer.png | width=200)
+<img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/sortable_spacer.png" width="200">
 
 #### Multiple Sequence Alignment
-![Align spacers](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/align.png | width=120)
+<img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/align.png" width="120">
 
 To launch an alignment, click the 'Align spacers' button. This method uses a progressive alignment algorithm that is optimized for closely related organisms. Distantly related organisms can still be aligned, but if no spacers are shared, no gaps are inserted and rows are simply reordered based on their similarity score.
 
 Sortable rows and spacers allow creation or manipulation of sequence alignments to begin understanding the unique evolutionary history of the organisms in question:
 
-![Gaps](https://github.com/CRISPRlab/CRISPRviz/blob/master/img/gaps.png | width=550)
+<img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/gaps.png" width="550">
 
 ---
 
