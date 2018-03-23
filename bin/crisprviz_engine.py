@@ -23,6 +23,11 @@ fileRef = []
 reverseComplement = False
 def resolveFilePaths() :
 	for (dirpath, dirnames, filenames) in walk("."):
+		if args.inputFile and len(args.inputFile) > 0 :
+			for fileName in filenames :
+				if args.inputFile in fileName :
+					fileRef.append(fileName) 
+		else :
 			fileRef.extend(filenames)
 			del dirnames[:]
 
@@ -44,17 +49,14 @@ def helpMsg(name=None):
 	
 
 # parse input arguments #
-parser = argparse.ArgumentParser(description='CRISPRvis >> Spacer|Repeat Conversion <>||<>||<> by Matt Nethery', usage=helpMsg())
+parser = argparse.ArgumentParser(description='CRISPRviz >> Spacer|Repeat Conversion <>||<>||<> by Matt Nethery', usage=helpMsg())
 parser.add_argument('-f', dest='inputFile', help='Input spacer file (*_spacers.fa)',required=False)
 parser.add_argument('-r','--rc', dest='rc', action='store_true', help='Reverse complement', required=False)
 parser.add_argument('-p','--path', dest='sourcePath', required=True)
 parser.set_defaults(predict=False)
 args = parser.parse_args()
 
-if args.inputFile and len(args.inputFile) > 0 :
-	fileRef.append(args.inputFile)
-else :
-	resolveFilePaths()
+resolveFilePaths()
 
 if args.rc :
 	reverseComplement = True
