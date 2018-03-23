@@ -154,7 +154,7 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
 
     *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata   ||   The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 5. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
 
-    *b)* **crisprviz.sh -pxc;**   ||   This command be modified to reflect any additional options you wish to include in your run.
+    *b)* **crisprviz.sh -pxc;**   ||   This command can be modified to reflect any additional options you wish to include in your run.
   ```
   docker run -it -p 4444:8000 \
   -v /Users/userName/Desktop/genomesFolder:/app/userdata \
@@ -213,7 +213,7 @@ crisprlab/crisprviz \
 
     *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata   ||   The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 9. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
 
-    *b)* **crisprviz.sh -pxc;**   ||   This command be modified to reflect any additional options you wish to include in your run.
+    *b)* **crisprviz.sh -pxc;**   ||   This command can be modified to reflect any additional options you wish to include in your run.
 ```
 docker run -it -p 4444:8000 \
 -v /Users/userName/Desktop/genomesFolder:/app/userdata \
