@@ -224,7 +224,7 @@ server.py --dir .."
 ```
 
 ---
-### Helpful Tips on Navigating the UI
+### Helpful Tips
 
 #### Importing files:
 Json files generated or exported from CRISPRviz can be quickly imported to the web tool by going to **File actions > Import**, then dragging and dropping the .json file onto the 'Choose File' button.
@@ -253,6 +253,15 @@ To launch an alignment, click the 'Align spacers' button. This method uses a pro
 Sortable rows and spacers allow creation or manipulation of sequence alignments to begin understanding the unique evolutionary history of the organisms in question:
 
 <img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/gaps.png" width="550">
+
+#### Starting up the server with previously extracted spacers|repeats
+
+If you have already extracted the spacers and repeats from a previous run and just want to view them in the front end, you can run CRISPRviz with the **-s** option (refresh spacers). **This pipeline only works with spacer and repeat files that have been previously extracted using CRISPRviz, as it uses specific rules and conventions to ensure accuracy in processing.** Ensure you are in the directory where the _spacers.fa_ and _repeats.fa_ files live, then run:
+
+```
+crisprviz.sh -s
+```
+
 
 ---
 
