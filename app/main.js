@@ -733,6 +733,10 @@ define([
     }
 
     $(document).ready(function () {
+        $.ajaxSetup({
+            type: 'GET',
+            headers: { "cache-control": "no-cache" }
+        });
     	loadSpacers();
 	});
 });
