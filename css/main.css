@@ -37,15 +37,47 @@ body {
     margin-right: 173px;
     position: relative;
     z-index: 1;
-    overflow: auto;
+    overflow: hidden;
 }
+
+
+
+.merged .spacer-item-parent.spacer {
+    padding-top: 5px;
+    height: 41px;
+}
+.spacer-item-parent.spacer {
+    float: right;
+}
+.spacer-item-parent.repeat {
+    height: 41px;
+    width: 41px;
+    float: right;
+    padding-top: 6px;
+    padding-right: 6px;
+}
+.spacer-item-parent.repeat .spacer-item {
+    width: 29px;
+    height: 29px;
+    transform: rotate(45deg);
+}
+.spacer-item-parent.repeat .spacer-item .symbol {
+    position: relative;
+    left: 7px;
+    top: 7px;
+    pointer-events: none;
+    font-size: 12px;
+    transform: rotate(-45deg);
+}
+
+
+
 .spacer-item {
 	height: 30px;
     width: 35px;
     float: right;
     margin-left: -1px;
     border: 0.5px solid black;
-    font-family: Wingdings;
     cursor: grab;
     cursor: -moz-grab;
     cursor: -webkit-grab;

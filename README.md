@@ -18,7 +18,7 @@ Options:
     -p 	Parallel processing >> Concurrently processes all genome.fasta files in current directory | (recommended for < 50 - 150 files).
     -s 	Run crisprviz_engine only. Use when spacers|repeats have already been extracted.
     -x 	Split loci. Each locus is listed as a separate row in web results.
-    -f 	Filename - must be in ".fasta" format.
+    -f 	Filename - file must be in ".fasta" format. *NOTE: Locates file in current directory ONLY
     -c 	Clean previous temp files. Removes all *.crisprs, *_spacers.fa, *_repeats.fa prior to execution.
     -r 	Min # of repeats | Default = 4.
     -b 	Min length of CRIPSR repeats in array | Default = 23.
@@ -45,7 +45,7 @@ Navigate to the directory containing your .fasta genome file(s) `cd genomeFolder
 
 		crisprviz.sh -pxc
 
-3. Run for a single genome file (-f genome.fasta), with a min # of repeats of 3 (-r), cleans tmp files (-c), and splits loci (-x):
+3. Run for a single genome file (-f genome.fasta *NOTE: this locates the provided filename in the current directory ONLY), with a min # of repeats of 3 (-r), cleans tmp files (-c), and splits loci (-x):
 
 		crisprviz.sh -cx -f genome.fasta -r 3
 
@@ -62,10 +62,10 @@ The pipeline can be installed on Linux and Mac operating systems directly by clo
 ## CLI installation (recommended):
 
 #### Software requirements:
-- Bash >= 3.2.57 && awk
+- **Bash** >= 3.2.57 && awk
 
-- Java >= 1.8
-- Python >= 2.7 or 3 && pip (install pip for Python 2 and pip3 for Python 3)
+- **Java** >= 1.8
+- **Python** >= 2.7 or 3 AND **pip** (install pip for Python 2 and pip3 for Python 3)
   - Mac - using homebrew:
 
    `brew install python`
@@ -75,12 +75,16 @@ The pipeline can be installed on Linux and Mac operating systems directly by clo
 
    `sudo apt-get install -y python3-pip`
 
-- Biopython
+- **Biopython**
 
   `pip install biopython`
   or
 
   `pip3 install biopython`
+
+- **Numpy**
+
+  `pip install numpy`
 
 
 ---
