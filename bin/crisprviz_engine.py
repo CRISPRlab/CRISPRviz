@@ -23,6 +23,8 @@ fileRef = []
 reverseComplement = False
 def resolveFilePaths() :
 	for (dirpath, dirnames, filenames) in walk("."):
+		if dirpath != '.':
+			continue
 		if args.inputFile and len(args.inputFile) > 0 :
 			for fileName in filenames :
 				if args.inputFile in fileName :
@@ -64,7 +66,7 @@ if args.rc :
 
 jsonMaster = []
 
-def convertToRGB(seqItem, rev_comp, calcVal) :
+def convertToRGB(seqItem, rev_comp, calcVal, isRepeat) :
 	if rev_comp :
 		seqItem.seq = seqItem.seq.reverse_complement()
 
@@ -156,7 +158,8 @@ def convertToRGB(seqItem, rev_comp, calcVal) :
 		"symG" : symbolColorG255,
 		"symB" : symbolColorB255,
 		"seq" : lower_seq, 
-		"calc" : int(coded_seq)
+		"calc" : int(coded_seq), 
+		"isRepeat" : isRepeat
 	}
 
 	return spacer
@@ -167,8 +170,8 @@ for fileItem in fileRef :
 	if "_spacers.fa" in fileItem :
 		spacerList = []
 		for seq_record in SeqIO.parse(fileItem, "fasta") :
-			spacerRef = convertToRGB(seq_record, False, True)
-			spacerRefRC = convertToRGB(seq_record, True, True)
+			spacerRef = convertToRGB(seq_record, False, True, False)
+			spacerRefRC = convertToRGB(seq_record, True, True, False)
 			spacerDualItem = {
 				"standard" : spacerRef, 
 				"rev" : spacerRefRC
@@ -188,8 +191,8 @@ for fileItem in fileRef :
 		if os.path.exists(repeatsFile):
 			repeatList = []
 			for seq_record in SeqIO.parse(repeatsFile, "fasta") :
-				repeatRef = convertToRGB(seq_record, False, False)
-				repeatRefRC = convertToRGB(seq_record, True, False)
+				repeatRef = convertToRGB(seq_record, False, False, True)
+				repeatRefRC = convertToRGB(seq_record, True, False, True)
 				repeatDualItem = {
 					"standard" : repeatRef, 
 					"rev" : repeatRefRC

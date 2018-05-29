@@ -39,7 +39,7 @@ CRISPRVIS_ENGINE=${SOURCE_DIR}/crisprviz_engine.py
 
 if [[ -n $hopt && $hopt -gt 0 ]]; then
 	echo '''
-CRISPRvis <>||<>||<>, a tool for spacer|repeat identification and exploration in full genomes
+CRISPRviz <>||<>||<>, a tool for spacer|repeat identification and exploration in full genomes
 
 Usage: crisprviz.sh [OPTIONS]
 
@@ -47,7 +47,7 @@ Options:	-t test installation. Will run the pipeline on a set of test data. Go t
 		-p 	parallel processing. Concurrently processes all genome.fasta files in current directory | (recommended for < 50 - 100 files) 	
 		-s 	run crisprviz_engine only. Use when spacers|repeats have already been extracted.
 		-x 	split loci. Each loci gets listed as a separate row in web tool results
-		-f 	.fasta genome filename - must be in ".fasta" format | (optional) 
+		-f 	.fasta genome filename - file must be in ".fasta" format. *NOTE: Locates file in current directory ONLY | (optional)  
 		-c 	clean. remove *.crisprs, *_spacers.fa, *.crisprs.fa prior to execution | (optional)
 		-r 	min # of repeats | Default = 4 | (optional)
 		-b 	min length of CRIPSR repeats in array | Default = 23 (optional)
