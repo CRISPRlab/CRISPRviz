@@ -148,13 +148,21 @@ define([
         for (block in blockList) {
             var blockItem = blockList[block];
             if (blockItem.seq.length <= 0) {
-                var emptySpacer = "<span class='spacer-item empty-spacer'><span class='symbol glyphicon glyphicon-remove'></span></span>";
+                var emptySpacer = "<span class='spacer-item-parent spacer'><span class='spacer-item empty-spacer'><span class='symbol glyphicon glyphicon-remove'></span></span></span>";
                 spacerContainer += emptySpacer;
             } else {
                 var blockColor = "background-color:rgb("+blockItem.bgR+","+blockItem.bgG+","+blockItem.bgB+");"
                 var blockSymbolColor = "color:rgb("+blockItem.symR+","+blockItem.symG+","+blockItem.symB+");"
-                spacerContainer += "<span class='spacer-item' style='"+ blockColor +"'><span class='symbol " + glyphRef.glyphLookup(blockItem.symbol) + "' style='"+ blockSymbolColor +"'></span></span>";
+                var parentClass = 'spacer';
+                if (blockItem.isRepeat) {
+                    parentClass = 'repeat'
+                }
+
+                var spacerBones = "<span class='spacer-item-parent " + parentClass +"'><span class='spacer-item' style='"+ blockColor +"'><span class='symbol " + glyphRef.glyphLookup(blockItem.symbol) + "' style='"+ blockSymbolColor +"'></span></span></span>";
+                
+                spacerContainer += spacerBones;
             }
+            
         }
 
         spacerContainer += "</div>";
@@ -414,6 +422,7 @@ define([
         $('.main-btn.spacer-toggle-btn').click(function() {
             showHUD();
             display = 'spacers';
+            $("#mainSpacerContainer").removeClass("merged");
             refreshPageItems();
             createFunctionalElements();
             hideHUD();
@@ -421,6 +430,7 @@ define([
         $('.main-btn.repeat-toggle-btn').click(function() {
             showHUD();
             display = 'repeats';
+            $("#mainSpacerContainer").removeClass("merged");
             refreshPageItems();
             createFunctionalElements();
             hideHUD();
@@ -428,6 +438,7 @@ define([
         $('.main-btn.both-toggle-btn').click(function() {
             showHUD();
             display = 'merged';
+            $("#mainSpacerContainer").addClass("merged");
             refreshPageItems();
             createFunctionalElements();
             hideHUD();
@@ -482,7 +493,15 @@ define([
     }
 
     function modifyEditableContent() {
-        $('div[contenteditable=true]').keydown(function(e) {
+        var editables = $('div[contenteditable=true]');
+        console.log('found editable: ', editables)
+        $.each(editables, function (key, val) {
+            addKeydownReturn($(this));
+        });
+    }
+
+    function addKeydownReturn(el) {
+        el.keydown(function(e) {
             if (e.keyCode == 13) {
                 // prevent the default behaviour of return key pressed //
                 e.preventDefault();
@@ -527,7 +546,7 @@ define([
         var targetSpacerContainer = ($(btn).siblings(".spacer-item-list"));
 
         var container = targetSpacerContainer[0];
-        var spacers = $(container).find("span.spacer-item");
+        var spacers = $(container).find("span.spacer-item-parent");
         var revSpacers = [];
         $(spacers).each(function(key, val) {
             revSpacers.push(val);
@@ -551,6 +570,11 @@ define([
         var data = spacerOutput[index];
         var spacerContainer = buildSpacerContainer(data, true);
         $('.spacer-container').eq(index).replaceWith(spacerContainer);
+        var editable = $('.spacer-container').eq(index).find('div[contenteditable=true]');
+        addKeydownReturn($(editable));
+
+        $('.spacer-container').eq(index).find('[data-toggle=item-tooltip]').tooltip();
+
         addFunctionAtIndex(index);
     }
 
@@ -583,8 +607,12 @@ define([
     }
 
     function addEmptySpacer(btn) {
+        if (display != 'spacers') {
+            alert("Adding gaps is only supported ion the 'Show Spacers' screen.");
+            return;
+        }
         var targetContainer = ($(btn).siblings(".spacer-item-list"));
-        var emptySpacer = $("<span class='spacer-item empty-spacer'><span class='symbol glyphicon glyphicon-remove'></span></span>");
+        var emptySpacer = $("<span class='spacer-item-parent spacer'><span class='spacer-item empty-spacer'><span class='symbol glyphicon glyphicon-remove'></span></span></span>");
         $(targetContainer).append(emptySpacer);
 
         var index = $(".spacer-item-list").index(targetContainer);
@@ -614,7 +642,7 @@ define([
         var i = 0;
         for (i; i < spacerContainers.length; i ++) {
             var container = spacerContainers[i];
-            var spacers = $(container).find("span.spacer-item");
+            var spacers = $(container).find("span.spacer-item-parent");
             var revSpacers = [];
             $(spacers).each(function(key, val) {
                 revSpacers.push(val);
@@ -643,7 +671,7 @@ define([
         [].forEach.call(id('mainSpacerContainer').getElementsByClassName('spacer-item-list'), function (el) {
             var sortItem = Sortable.create(el, {
                 animation: 150, 
-                draggable: ".spacer-item", 
+                draggable: ".spacer-item-parent", 
                 ghostClass: "ghost-spacer-item",
 
                 onEnd: function (/**Event*/evt) {
