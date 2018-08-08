@@ -393,11 +393,13 @@ define(['underscore'], function (_) {
             var extList = [];
             var removeList = [];
             $.each(items, function (key, item) {
+                if(item && item[active]){
                     if (item[active].seq.length > 0) {
                         extList.push(item[active].calc);
                     } else {
                         removeList.push(key)
                     }
+                }
             });
             return {
                 'extList' : extList, 

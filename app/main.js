@@ -175,7 +175,9 @@ define([
     function extractActiveItems(items, active) {
         var extList = [];
         $.each(items, function (key, item) {
+            if(item && item[active]) {
                 extList.push(item[active]);
+            }
         });
         return extList;
     }
@@ -494,7 +496,6 @@ define([
 
     function modifyEditableContent() {
         var editables = $('div[contenteditable=true]');
-        console.log('found editable: ', editables)
         $.each(editables, function (key, val) {
             addKeydownReturn($(this));
         });
