@@ -157,8 +157,7 @@ define([
                 if (blockItem.isRepeat) {
                     parentClass = 'repeat'
                 }
-                console.log(blockItem.seq)
-                var spacerBones = "<span data-toggle='spacer-tooltip' data-placement='auto' title='" + blockItem.seq + "' class='spacer-item-parent " + parentClass +"'><span class='spacer-item' style='"+ blockColor +"'><span class='symbol " + glyphRef.glyphLookup(blockItem.symbol) + "' style='"+ blockSymbolColor +"'></span></span></span>";
+                var spacerBones = "<span class='spacer-item-parent " + parentClass +"'><span class='spacer-item' style='"+ blockColor +"'><span class='symbol " + glyphRef.glyphLookup(blockItem.symbol) + "' style='"+ blockSymbolColor +"'></span></span></span>";
                 
                 spacerContainer += spacerBones;
             }
@@ -490,7 +489,6 @@ define([
 
         // enable tooltips at the spacer-container level //
         $('[data-toggle=item-tooltip]').tooltip();
-        $('[data-toggle=spacer-tooltip]').tooltip();
 
         modifyEditableContent();
     }
