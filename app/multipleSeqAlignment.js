@@ -412,12 +412,17 @@ define(['underscore'], function (_) {
             for (var i = 0; i < arr.length - 1; i++) {
                 for (var j = i + 1; j < arr.length; j++) {
                     var score = initiateSpaceAndScore(arr[i].spacers, arr[j].spacers, true);
+                    if (score) {
+                        score = +score.toFixed(fixedVar); // + fixes float to string issue
+                    } else {
+                        score = 0
+                    }
                     var dict = {
                         'titleA' : arr[i].title,
                         'titleB' : arr[j].title,
                         'indexA' : i, 
                         'indexB' : j,
-                        'score' : +score.toFixed(fixedVar) // + fixes float to string issue
+                        'score' :  score
                     }
                     results.push(dict);
                 }

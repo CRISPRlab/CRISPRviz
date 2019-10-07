@@ -156,7 +156,7 @@ extract_repeats () {
 		while IFS=  read -r -d $'\0'; do
 	    	CRISPR_FILES+=("$REPLY")
 		done < <(find . -maxdepth 1 -name '*.crisprs' -print0)
-		echo "Total .crisprs files available in directory: ${#CRISPR_FILES[@]}"
+		#echo "Total .crisprs files available in directory: ${#CRISPR_FILES[@]}"
 		
 		for i in "${CRISPR_FILES[@]}"
 		do
@@ -203,7 +203,7 @@ get_spacer_files () {
 	while IFS=  read -r -d $'\0'; do
 	    SPACER_FILES+=("$REPLY")
 	done < <(find . -maxdepth 1 -name '*_spacers.fa' -print0)
-	echo "Total spacer files available in directory: ${#SPACER_FILES[@]}"
+	#echo "Total spacer files available in directory: ${#SPACER_FILES[@]}"
 }
 
 get_repeat_files () {
@@ -211,7 +211,7 @@ get_repeat_files () {
 	while IFS=  read -r -d $'\0'; do
     	REPEAT_FILES+=("$REPLY")
 	done < <(find . -maxdepth 1 -name '*_repeats.fa' -print0)
-	echo "Total repeat files available in directory: ${#REPEAT_FILES[@]}"
+	echo "Total genomes with detectable CRISPRs: ${#REPEAT_FILES[@]}"
 }
 
 split_files () {
@@ -279,7 +279,7 @@ remove_null_results () {
 	fi
 }
 
-
+#get initial genome .fasta files for analysis
 GENOME_FILES=()
 while IFS=  read -r -d $'\0'; do
     GENOME_FILES+=("$REPLY")
