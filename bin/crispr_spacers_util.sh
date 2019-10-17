@@ -30,9 +30,9 @@ else
 	echo "ERROR: unsupported version of Python. This software currently supports use of Python 2 and 3."
 fi
 
-echo "...Executing server.py..."
+echo "...Executing http.server..."
 echo "('Serving HTTP on', '0.0.0.0', 'port', 4444, '...')"
 
 printf "\nCRISPRviz <>||<>||<> processing COMPLETE! >> check localhost:4444 for results.\n"
 
-exit 1
+exit 0

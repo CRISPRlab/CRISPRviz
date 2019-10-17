@@ -140,14 +140,13 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
   ```
 4. Test the installation:
     ```
-    docker run -it -p 4444:8000 \
+    docker run -it -p 4444:4444 \
     crisprlab/crisprviz \
-    /bin/bash -c "crisprviz.sh -t; server.py;"
+    /bin/bash -c "crisprviz.sh -t; python -m http.server 4444;"
     ```
 
     Once the processing is complete (typically after a few seconds), you will see: `Minced parsing completed @:  Wed Mar 21 16:01:13 UTC 2018
-...Executing server.py...
-('Serving HTTP on', '0.0.0.0', 'port', 8000, '...')`
+Serving HTTP on 0.0.0.0 port 4444 ...`
 
      Go to **localhost:4444** in your browser to view the results. Docker will sometimes take a minute or two to serve the page up, especially if it is the first time the Python server is started, so be patient. Sometimes refreshing the page can speed up the process.
 
@@ -159,12 +158,13 @@ git clone https://github.com/CRISPRlab/CRISPRviz.git
 
     *b)* **crisprviz.sh -pxc;**   ||   This command can be modified to reflect any additional options you wish to include in your run.
   ```
-  docker run -it -p 4444:8000 \
+  docker run -it -p 4444:4444 \
   -v /Users/userName/Desktop/genomesFolder:/app/userdata \
   crisprlab/crisprviz \
   /bin/bash -c "cd /app/userdata; \
   crisprviz.sh -pxc; \
-  server.py --dir .."
+  cd ..; \
+  python -m http.server 4444;"
   ```
 ---
 
@@ -199,14 +199,13 @@ docker-machine ip default
 
 8. Test the installation:
 ```
-docker run -it -p 4444:8000 \
+docker run -it -p 4444:4444 \
 crisprlab/crisprviz \
-/bin/bash -c "crisprviz.sh -t; server.py;"
+/bin/bash -c "crisprviz.sh -t; python -m http.server 4444;"
 ```
 
   Once the processing is complete (typically after a few seconds), you will see: `Minced parsing completed @:  Wed Mar 21 16:01:13 UTC 2018
-...Executing server.py...
-('Serving HTTP on', '0.0.0.0', 'port', 8000, '...')`
+Serving HTTP on 0.0.0.0 port 4444 ...`
 
  Go to **(default ip from step 7):4444** in your browser to view the results. Example:  **192.168.99.100:4444**. Docker will sometimes take a minute or two to serve the page up, especially if it is the first time the Python server is started, so be patient. Sometimes refreshing the page can speed up the process.
 
@@ -214,16 +213,17 @@ crisprlab/crisprviz \
 
 10. Create the CRISPRviz container and begin processing genomes! **Note** - Before copy/pasting the below script into the Docker command line, two modifications need to be made:
 
-    *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata   ||   The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 9. The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
+    *a)* -v **/Users/userName/Desktop/genomesFolder**:/app/userdata   ||   The bolded directory must be updated to the **absolute** path to the directory containing your genome files from Step 9. Depending on how Docker is setup on your machine, the directory path could begin with /c/Users/... or //c/Users/... Check your Docker volume mounting settings.  The /app/userdata directory is the location in the container where your data will be housed when the container spins up, and should not be modified!
 
     *b)* **crisprviz.sh -pxc;**   ||   This command can be modified to reflect any additional options you wish to include in your run.
 ```
-docker run -it -p 4444:8000 \
--v /Users/userName/Desktop/genomesFolder:/app/userdata \
+docker run -it -p 4444:4444 \
+-v /c/Users/userName/Desktop/genomesFolder:/app/userdata \
 crisprlab/crisprviz \
 /bin/bash -c "cd /app/userdata; \
 crisprviz.sh -pxc; \
-server.py --dir .."
+cd ..; \
+python -m http.server 4444;"
 ```
 
 ---
