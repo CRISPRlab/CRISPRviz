@@ -25,7 +25,7 @@
 
         <!--File Action Dropdown-->
         <div class="dropdown">
-            <div class="btn-group">
+            <div id="mainMenuDropdown" class="btn-group">
                 
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 File actions
@@ -37,8 +37,9 @@
                     <li><a class="dropdown-item save-item" data-toggle="modal" data-target="#saveModal" href="#">Save<span class='glyphicon glyphicon-floppy-save'></span></a></li>
                     <li><a class="dropdown-item load-item" data-toggle="modal" data-target="#loadModal" href="#">Load<span class='glyphicon glyphicon-folder-open'></span></a></li>
                     <li><a class="dropdown-item manage-item" data-toggle="modal" data-target="#manageModal" href="#">Manage<span class='glyphicon glyphicon-list'></span></a></li>
-                    <li><a class="dropdown-item import-item" data-toggle="modal" data-target="#importModal" href="#">Import<span class='glyphicon glyphicon-open'></span></a></li>
-                    <li><a class="dropdown-item export-item" data-toggle="modal" data-target="#exportModal" href="#">Export<span class='glyphicon glyphicon-save'></span></a></li>
+                    <li><a class="dropdown-item import-item" data-toggle="modal" data-target="#importModal" href="#">Import .json<span class='glyphicon glyphicon-open'></span></a></li>
+                    <li><a class="dropdown-item export-item" data-toggle="modal" data-target="#exportModal" href="#">Export .json<span class='glyphicon glyphicon-save'></span></a></li>
+                    <li><a id="screenshotBtn" class="dropdown-item screenshot-item" href="#">Screenshot<span class='glyphicon glyphicon-camera'></span></a></li>
                 </ul>
             </div>
         </div>

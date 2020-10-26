@@ -412,7 +412,7 @@ li .dropdown-item:hover {
     position: relative;
 }
 .dropdown-item.import-item .glyphicon{
-    left: -60px;
+    left: -94px;
     top: 2px;
     color: black;
 }
@@ -422,10 +422,21 @@ li .dropdown-item:hover {
     position: relative;
 }
 .dropdown-item.export-item .glyphicon{
-    left: -60px;
+    left: -94px;
     top: 2px;
     color: black;
 }
+/* Screenshot */
+.dropdown-item.screenshot-item{
+    left: 20px;
+    position: relative;
+}
+.dropdown-item.screenshot-item .glyphicon{
+    left: -91px;
+    top: 2px;
+    color: black;
+}
+
 .dropdown .btn-group>.btn:hover {
     z-index: 0;
 }

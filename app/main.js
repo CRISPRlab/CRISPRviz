@@ -5,6 +5,7 @@ define([
 		'FileSaver',				
 		'./glyphLookup', 			
 		'./multipleSeqAlignment',
+        'html2canvas.min',
 		], function (
 						$, 
 						bootstrap, 
@@ -12,6 +13,7 @@ define([
 						FileSaver,
 						glyphRef, 
 						MSA,
+                        html2canvas,
 						) {
 
 
@@ -302,6 +304,21 @@ define([
         });
 
         $('[data-toggle=tooltip]').tooltip();
+
+        // save screenshot functionality //
+        $('#screenshotBtn').click(function() {
+
+                $("#mainMenuDropdown").removeClass("open");
+
+                html2canvas(document.body, {
+                    backgroundColor: '#d3d3d3'
+                }).then(function(canvas) {
+                    canvas.toBlob(function(blob) {
+                        saveAs(blob, "CRISPRviz_screenshot.png");
+                    });
+                });
+
+            });
     }
 
     function populateManageList() {
