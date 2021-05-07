@@ -1,4 +1,6 @@
-<img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/logo.png" width="700">
+CRISPRviz <a href='https://github.com/CRISPRlab/CRISPRviz/'><img src='crisprviz_hex.png' align="right" height="139" /></a>
+=================================================================================================================
+<!-- <img src="https://github.com/CRISPRlab/CRISPRviz/blob/master/img/logo.png" width="700"> -->
 
 CRISPRviz (CRISPR Visualizer) identifies and extracts repeats and spacers from genome files (.fasta), then displays this information via local web server for additional manipulation (localhost:4444).
 
